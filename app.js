@@ -11,10 +11,15 @@ const app=express();
 // Enable CORS for all origins
 
 app.set("trust proxy", 1);
+const cors = require('cors'); // Ensure you have required the 'cors' package
+
 app.use(cors({
-    origin: ['https://grievance-frontend.vercel.app','http://localhost:3000'], // Replace with the actual origin of your frontend application
-    credentials: true // Enable sending cookies with the request
-  }));
+    origin: ['https://grievance-frontend.vercel.app', 'http://localhost:3000'], // Allowed origins
+    credentials: true, // To allow cookies to be shared between back-end and front-end
+    methods: ['GET', 'POST'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Accept'] // Optionally specify headers allowed in requests
+}));
+
 const cookieParser=require("cookie-parser");
 app.use(cookieParser());
 app.use(express.json());
