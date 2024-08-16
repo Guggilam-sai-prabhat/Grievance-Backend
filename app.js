@@ -11,7 +11,7 @@ const app=express();
 // Enable CORS for all origins
 
 app.set("trust proxy", 1);
-const cors = require('cors'); // Ensure you have required the 'cors' package
+ // Ensure you have required the 'cors' package
 
 app.use(cors({
     origin: ['https://grievance-frontend.vercel.app', 'http://localhost:3000'], // Allowed origins
