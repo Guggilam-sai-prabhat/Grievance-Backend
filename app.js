@@ -9,6 +9,8 @@ const Router=require('./router/auth');
 
 const app=express();
 // Enable CORS for all origins
+
+app.set("trust proxy", 1);
 app.use(cors({
     origin: ['https://grievance-frontend.vercel.app','http://localhost:3000'], // Replace with the actual origin of your frontend application
     credentials: true // Enable sending cookies with the request
